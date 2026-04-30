@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Cynthia 🌹</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#12090e;--cream:#f0e6d8;--rose:#c4748a;--rose2:#e8a0b0;--gold:#c9a84c;--gold2:#e8cc80;--muted:#7a5a68;--ink:#2a1520}
+    html,body{height:100%;background:var(--bg);color:var(--cream);font-family:'Jost',sans-serif;overflow-x:hidden}
+    body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.03;mix-blend-mode:overlay}
+    .blob{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(90px)}
+    .b1{width:520px;height:520px;background:#6b1840;opacity:0.2;top:-140px;right:-140px}
+    .b2{width:380px;height:380px;background:#2d1020;opacity:0.3;bottom:-80px;left:-80px}
+    .page{display:none;position:relative;z-index:1;min-height:100vh}
+    .page.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
+    /* PAGE 1 */
+    #page1{padding:2rem}
+    .p1{display:flex;flex-direction:column;align-items:center;gap:3rem;max-width:480px}
+    .eyebrow{font-size:0.68rem;letter-spacing:0.38em;text-transform:uppercase;color:var(--rose);font-weight:300;opacity:0;animation:up 1s ease forwards 0.2s}
+    .p1-title{font-family:'DM Serif Display',serif;font-size:clamp(3.5rem,12vw,6rem);line-height:0.9;color:var(--cream);text-align:center;opacity:0;animation:up 1.1s ease forwards 0.45s}
+    .p1-title em{font-style:italic;color:var(--rose2);display:block}
+    .divider{width:1px;height:56px;background:linear-gradient(to bottom,transparent,var(--rose),transparent);opacity:0;animation:fi 1s ease forwards 1s}
+    .open-btn{display:flex;flex-direction:column;align-items:center;gap:1.1rem;cursor:pointer;background:none;border:none;color:inherit;opacity:0;animation:up 1s ease forwards 1.1s}
+    .ring{width:96px;height:96px;border-radius:50%;border:1px solid rgba(196,116,138,0.35);display:flex;align-items:center;justify-content:center;transition:transform 0.4s,border-color 0.4s}
+    .ring:hover{transform:scale(1.08);border-color:var(--rose)}
+    .ring-icon{font-size:2.3rem}
+    .open-label{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted)}
+    /* PAGE 2 */
+    #page2{padding:2rem}
+    .letter-wrap{max-width:560px;width:100%;opacity:0;transform:translateY(28px);animation:reveal 0.85s cubic-bezier(0.22,1,0.36,1) forwards}
+    .paper{background:#faf4ec;border-radius:2px;padding:3rem 3rem 2.6rem;position:relative;color:var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.1),0 16px 48px rgba(0,0,0,.38),0 40px 80px rgba(0,0,0,.18)}
+    .paper::before{content:'';position:absolute;inset:0;border-radius:2px;background:repeating-linear-gradient(transparent,transparent 27px,rgba(160,120,130,.13) 27px,rgba(160,120,130,.13) 28px);pointer-events:none}
+    .paper::after{content:'';position:absolute;top:0;bottom:0;left:3.4rem;width:1px;background:rgba(200,100,100,.18);pointer-events:none}
+    .stamp{position:absolute;top:1.2rem;right:1.4rem;font-size:1.7rem;opacity:.65;transform:rotate(4deg)}
+    .l-date{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:#9a6a7a;margin-bottom:1.8rem;padding-left:1.8rem}
+    .l-dear{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-style:italic;color:#4a2035;margin-bottom:1.3rem;padding-left:1.8rem}
+    .l-body{padding-left:1.8rem}
+    .l-body p{font-family:'Cormorant Garamond',serif;font-size:1.1rem;line-height:1.9;color:#3a1e30;margin-bottom:1rem}
+    .l-body p em{font-style:italic;color:#7a2a50}
+    .l-sign{margin-top:1.6rem;padding-left:1.8rem;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:#4a2035}
+    .l-sign small{display:block;margin-top:.25rem;font-family:'Jost',sans-serif;font-weight:300;font-size:.72rem;color:#9a7a8a;font-style:normal}
+    .l-cta{margin-top:2.2rem;display:inline-flex;align-items:center;gap:.9rem;cursor:pointer;background:none;border:none;color:#b86a7e;font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;transition:gap .3s}
+    .l-cta:hover{gap:1.4rem}
+    .l-cta::after{content:'→'}
+    /* PAGE 3 */
+    #page3{padding:2rem;overflow:hidden}
+    .bg-word{position:absolute;font-family:'DM Serif Display',serif;font-size:clamp(9rem,24vw,20rem);color:var(--rose);opacity:.04;pointer-events:none;user-select:none;white-space:nowrap;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-8deg);z-index:0}
+    .p3{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:2.2rem;text-align:center;max-width:520px}
+    .p3-label{font-size:.65rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:400;opacity:0;animation:up .8s ease forwards .1s}
+    .p3-ask{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,9vw,5rem);line-height:1.05;color:var(--cream);opacity:0;animation:up .9s ease forwards .3s}
+    .p3-ask em{font-style:italic;color:var(--rose2)}
+    .p3-rule{width:72px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:0;animation:fi .8s ease forwards .65s}
+    .p3-hint{font-size:.75rem;color:var(--muted);letter-spacing:.1em;font-weight:300;opacity:0;animation:up .8s ease forwards .85s}
+    .btn-row{display:flex;align-items:center;gap:1.8rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:up .8s ease forwards 1.05s}
+    .btn-yes{padding:.9rem 3rem;font-size:.82rem;background:var(--rose);color:#fff;border:none;border-radius:2px;font-family:'Jost',sans-serif;font-weight:400;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .25s,box-shadow .25s,transform .2s}
+    .btn-yes:hover{background:var(--rose2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(196,116,138,.4)}
+    #noBtn{padding:.6rem 1.5rem;font-size:.72rem;background:transparent;color:var(--muted);border:1px solid rgba(122,90,104,.4);border-radius:2px;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:.12em;text-transform:uppercase;position:fixed;transition:left .16s cubic-bezier(.22,1,.36,1),top .16s cubic-bezier(.22,1,.36,1);z-index:500;user-select:none}
+    #panicMsg{position:fixed;pointer-events:none;z-index:9999;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--rose2);white-space:nowrap;text-shadow:0 2px 14px rgba(12,6,10,.9);opacity:0;transition:opacity .15s}
+    #escCount{position:fixed;top:1.2rem;right:1.4rem;z-index:9998;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;color:var(--muted);opacity:0;transition:opacity .4s;pointer-events:none}
+    /* PAGE 4 */
+    #page4{gap:2rem;padding:2rem;text-align:center;overflow:hidden}
+    .cf-layer{position:fixed;inset:0;pointer-events:none;z-index:0}
+    .yes-glyph{font-size:clamp(5rem,14vw,8rem);opacity:0;animation:heartPop .7s cubic-bezier(.36,.07,.19,.97) forwards .1s;position:relative;z-index:1}
+    .yes-head{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,7vw,4.2rem);line-height:1.05;color:var(--cream);opacity:0;animation:up .8s ease forwards .55s;position:relative;z-index:1}
+    .yes-head em{font-style:italic;color:var(--rose2)}
+    .yes-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,4vw,1.75rem);color:var(--gold2);opacity:0;animation:up .8s ease forwards .95s;position:relative;z-index:1}
+    .yes-note{max-width:400px;font-weight:300;line-height:1.85;color:var(--muted);font-size:.92rem;opacity:0;animation:up .8s ease forwards 1.35s;position:relative;z-index:1}
+    #petals{position:fixed;inset:0;pointer-events:none;z-index:0}
+    @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fi{from{opacity:0}to{opacity:1}}
+    @keyframes reveal{to{opacity:1;transform:translateY(0)}}
+    @keyframes heartPop{0%{opacity:0;transform:scale(.1) rotate(-20deg)}65%{opacity:1;transform:scale(1.15) rotate(5deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+    @keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-10deg) scale(1.08)}75%{transform:rotate(10deg) scale(1.08)}}
+  </style>
+</head>
+<body>
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<canvas id="petals"></canvas>
+<div id="panicMsg"></div>
+<div id="escCount"></div>
+
+<div class="page active" id="page1">
+  <div class="p1">
+    <span class="eyebrow">a message for you</span>
+    <h1 class="p1-title">Hey<br/><em>Cynthia.</em></h1>
+    <div class="divider"></div>
+    <button class="open-btn" onclick="goTo(2)">
+      <div class="ring"><span class="ring-icon">💌</span></div>
+      <span class="open-label">Open</span>
+    </button>
+  </div>
+</div>
+
+<div class="page" id="page2">
+  <div class="letter-wrap">
+    <div class="paper">
+      <span class="stamp">🌸</span>
+      <div class="l-date">written with great effort and two snacks</div>
+      <div class="l-dear">Dear Cynthia,</div>
+      <div class="l-body">
+        <p>I tried to think of a prom pun to open this letter. I had like three drafts. They were all terrible. So I am just going to say it straight.</p>
+        <p>Are you a parking ticket? Because you have got <em>"fine"</em> written all over you. Okay I'm kidding. Kind of. But seriously, you are my favorite person and you take up space in my head rent free. Indefinitely. No eviction notice coming.</p>
+        <p>They say prom is magical. I say it is just a fancy gymnasium. But I think with the right person, even a fancy gymnasium can be pretty great. I would like you to be that person. The case is simple. You are my favorite. Full stop.</p>
+        <p>I would say you make my heart skip a beat, but that sounds like a medical emergency. So instead I will just ask. <em>Properly.</em></p>
+      </div>
+      <div class="l-sign">
+        Jonah 💛
+        <small>(p.s. if you say no I will simply combust. so really this is a safety issue.)</small>
+      </div>
+      <button class="l-cta" onclick="goTo(3)">keep reading</button>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page3">
+  <div class="bg-word">yes</div>
+  <div class="p3">
+    <span class="p3-label">the question</span>
+    <h2 class="p3-ask">Cynthia, will you go to<br/><em>prom</em> with me?</h2>
+    <div class="p3-rule"></div>
+    <p class="p3-hint">one of these buttons is correct</p>
+    <div class="btn-row">
+      <button class="btn-yes" onclick="goTo(4)">Yes 🌹</button>
+      <button id="noBtn">No</button>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page4">
+  <div class="cf-layer" id="cfLayer"></div>
+  <div class="yes-glyph">💗</div>
+  <div class="yes-head">She said<br/><em>yes.</em></div>
+  <div class="yes-sub">Prom just got infinitely better.</div>
+  <p class="yes-note">I promise the best night. Good pictures, good music, and me making you laugh the whole time. Did I mention I'm hilarious? I have been told I am hilarious. (I told myself that. Just now.) 🌹💗</p>
+</div>
+
+<script>
+function goTo(n){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page'+n).classList.add('active');if(n===3)initNo();if(n===4){teardownNo();launchConfetti()}}
+const PANIC=["nope nope nope 🏃","are you even trying","error 404: no not found","this button has left the building","I am speed","motion to table this","my lawyers advise against","not scientifically possible","lol nice try","OVERRIDE: no = yes","the answer is yes, actually","have you considered… yes?","roses are red, the answer is yes","it's giving: yes","this is not a drill 🚨","she's getting closer 😰","abort abort abort","please I have a family","I will never stop running","did it hurt when you fell from heaven? say yes","are you a magician? because yes disappeared","I'm not running, I'm relocating","the wifi password is also yes","have I mentioned YES?","just. say. yes."];
+const noBtn=document.getElementById('noBtn'),panicEl=document.getElementById('panicMsg'),cntEl=document.getElementById('escCount');
+let escapes=0,fs=0.72,wander,panicT,active=false;
+function initNo(){if(active)return;active=true;noBtn.style.transition='none';placeRandom();setTimeout(()=>noBtn.style.transition='left .16s cubic-bezier(.22,1,.36,1),top .16s cubic-bezier(.22,1,.36,1)',50);document.addEventListener('mousemove',onProx);document.addEventListener('touchmove',onTouch,{passive:true});noBtn.addEventListener('click',onCaught);noBtn.addEventListener('touchstart',onCaught,{passive:true});wander=setInterval(()=>{placeRandom();if(Math.random()>.4)showPanic()},2400);cntEl.style.opacity='1'}
+function teardownNo(){active=false;clearInterval(wander);clearTimeout(panicT);document.removeEventListener('mousemove',onProx);document.removeEventListener('touchmove',onTouch)}
+function placeRandom(){const bw=noBtn.offsetWidth||88,bh=noBtn.offsetHeight||38,p=16;setPos(p+Math.random()*(innerWidth-bw-p*2),p+Math.random()*(innerHeight-bh-p*2))}
+function flee(cx,cy){const r=noBtn.getBoundingClientRect(),bx=r.left+r.width/2,by=r.top+r.height/2,a=Math.atan2(by-cy,bx-cx),d=180+Math.random()*160;setPos(bx+Math.cos(a)*d-r.width/2,by+Math.sin(a)*d-r.height/2);showPanic();countEsc()}
+function setPos(x,y){const bw=noBtn.offsetWidth||88,bh=noBtn.offsetHeight||38,p=10;noBtn.style.left=Math.max(p,Math.min(innerWidth-bw-p,x))+'px';noBtn.style.top=Math.max(p,Math.min(innerHeight-bh-p,y))+'px'}
+function onProx(e){const r=noBtn.getBoundingClientRect();if(Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2))<140)flee(e.clientX,e.clientY)}
+function onTouch(e){const t=e.touches[0],r=noBtn.getBoundingClientRect();if(Math.hypot(t.clientX-(r.left+r.width/2),t.clientY-(r.top+r.height/2))<160)flee(t.clientX,t.clientY)}
+function onCaught(e){e.stopPropagation();noBtn.style.transition='none';placeRandom();requestAnimationFrame(()=>noBtn.style.transition='left .16s cubic-bezier(.22,1,.36,1),top .16s cubic-bezier(.22,1,.36,1)');fs=Math.max(.48,fs-.08);noBtn.style.fontSize=fs+'rem';noBtn.style.animation='wiggle .4s ease';setTimeout(()=>noBtn.style.animation='',450);showPanic(true);countEsc()}
+function showPanic(urgent=false){clearTimeout(panicT);const r=noBtn.getBoundingClientRect();panicEl.textContent=(urgent?'— ':'')+PANIC[Math.floor(Math.random()*PANIC.length)];panicEl.style.left=Math.max(8,r.left-8)+'px';panicEl.style.top=Math.max(8,r.top-36)+'px';panicEl.style.opacity='1';panicT=setTimeout(()=>panicEl.style.opacity='0',1700)}
+function countEsc(){escapes++;const q=['','','','(it knows.)','(it\'s scared)','(it will never stop)','(just say yes)','(the answer is yes)','(this could go on forever)'];if(escapes>=3)cntEl.textContent=escapes+' escapes '+(escapes>=9?'('+escapes+' and counting…)':q[escapes]||'')}
+const cv=document.getElementById('petals'),cx2=cv.getContext('2d');let petals=[];
+const resize=()=>{cv.width=innerWidth;cv.height=innerHeight};resize();window.addEventListener('resize',resize);
+const PAL=['#c4748a','#e8a0b0','#8b2252','#c9a84c','#f0e6d8','#7a2a50'];
+function mkP(){return{x:Math.random()*cv.width,y:-20,sz:4+Math.random()*10,vy:.4+Math.random()*.9,vx:(Math.random()-.5)*.7,a:Math.random()*Math.PI*2,sp:(Math.random()-.5)*.035,c:PAL[Math.floor(Math.random()*PAL.length)],al:.28+Math.random()*.42}}
+(function loop(){cx2.clearRect(0,0,cv.width,cv.height);if(petals.length<38)petals.push(mkP());petals.forEach(p=>{p.x+=p.vx+Math.sin(p.y*.018)*.35;p.y+=p.vy;p.a+=p.sp;cx2.save();cx2.globalAlpha=p.al;cx2.translate(p.x,p.y);cx2.rotate(p.a);cx2.beginPath();cx2.ellipse(0,0,p.sz,p.sz*.5,0,0,Math.PI*2);cx2.fillStyle=p.c;cx2.fill();cx2.restore()});petals=petals.filter(p=>p.y<cv.height+30);requestAnimationFrame(loop)})();
+function launchConfetti(){const wrap=document.getElementById('cfLayer'),cols=['#c4748a','#e8a0b0','#c9a84c','#f0e6d8','#8b2252','#e8cc80'],emoj=['🌹','💗','✨','🎉','💖','🌸','🥁','🎶'];for(let i=0;i<90;i++)setTimeout(()=>{const el=document.createElement('div'),em=Math.random()>.42;el.style.cssText='position:fixed;pointer-events:none;z-index:2;left:'+Math.random()*100+'vw;top:-30px;font-size:'+(em?1+Math.random()*.7:0)+'rem;width:'+(em?0:6+Math.random()*8)+'px;height:'+(em?0:6+Math.random()*8)+'px;background:'+(em?'transparent':cols[Math.floor(Math.random()*cols.length)])+';border-radius:'+(Math.random()>.5?'50%':'2px')+';animation:cffall '+(1.8+Math.random()*2.4)+'s ease-in forwards;';el.textContent=em?emoj[Math.floor(Math.random()*emoj.length)]:'';wrap.appendChild(el)},i*28);if(!document.getElementById('cfkf')){const s=document.createElement('style');s.id='cfkf';s.textContent='@keyframes cffall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(520deg);opacity:0}}';document.head.appendChild(s)}}
+</script>
+</body>
+</html>
